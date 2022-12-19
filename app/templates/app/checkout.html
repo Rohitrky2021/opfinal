@@ -1,0 +1,116 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row mt-5">
+  <div class="col-sm-6">
+    <h4>Order Summary</h4>
+    <hr>
+    {% for item in cart_items %} 
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5>Product: {{item.product.title}} </h5>
+          <p>Quantity: {{item.quantity}} </p>
+          <p class="fw-bold">Price: {{item.total_cost}} </p>
+        </div>
+      </div>
+      {% endfor %}
+      <p class="fw-bold">Total Cost + ShippingCharges(Rs.70) ={{totalamount}} </p>
+<small>Terms and Conditions :
+  <ul>
+    <li>
+  Select your preferred EMI option at the time of payment.
+    </li>
+    <li>
+  Final EMI is calculated on the total value of your order at the time of payment.</li>
+<li>
+  The minimum order value to avail the EMI payment option is Rs. 3,000
+</li><li>
+  This option is available only when the cart contains items from a single selle
+</ul></small>
+    </div>
+  <div class="col-sm-4 offset-sm-1">
+    <h4>Select Shipping Address</h4>
+    <hr>
+
+    <form action="/paymentdone" id="myform">
+      {% for ad in add %}
+      <div class="card">
+        <div class="card-body">
+        <h5>{{ad.name}} </h5>
+        <p>{{ad.locality}},{{ad.city}} ,{{ad.state}} - {{ad.zipcode}}</p>
+        </div>
+      </div>
+        <div class="form-check mt-2 mb-5">
+          <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}} " value=" ad.id " >
+          <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}">
+            Address:{{forloop.counter}} </label>
+        </div>
+        {% endfor %}
+      <p class="fw-bold">Total Cost + ShippingCharges(Rs.70) ={{totalamount}} </p>
+
+        <div class="text-end">
+          {% comment %} <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button> {% endcomment %}
+          <div id="paypal-button-container"></div>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main-content %}
+{% block payment-gateway %}
+<script src="https://www.paypal.com/sdk/js?client-id=AfwyMi13tSSxRZvu9TEBcKDlXGeN80PgcaMI-fbPsnYQ5X1jHo2Ihvp7qcTf8vTB-kk0SB9tSA4ehQLa&currency=USD&intent=capture&enable-funding=venmo" data-sdk-integration-source="integrationbuilder"></script>
+        <script>
+          const paypalButtonsComponent = paypal.Buttons({
+              // optional styling for buttons
+              // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
+              style: {
+                color: "gold",
+                shape: "rect",
+                layout: "vertical"
+              },
+
+              // set up the transaction
+              createOrder: (data, actions) => {
+                  // pass in any options from the v2 orders create call:
+                  // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
+                  const createOrderPayload = {
+                      purchase_units: [
+                          {
+                              amount: {
+                                  value: "{{totalamount}}"
+                              }
+                          }
+                      ]
+                  };
+
+                  return actions.order.create(createOrderPayload);
+              },
+
+              // finalize the transaction
+              onApprove: (data, actions) => {
+                  const captureOrderHandler = (details) => {
+                      const payerName = details.payer.name.given_name;
+                      console.log('Transaction completed');
+                      document.getElementById("myform").submit();
+                  };
+
+                  return actions.order.capture().then(captureOrderHandler);
+              },
+
+              // handle unrecoverable errors
+              onError: (err) => {
+                  console.error('An error prevented the buyer from checking out with PayPal');
+              }
+          });
+
+          paypalButtonsComponent
+              .render("#paypal-button-container")
+              .catch((err) => {
+                  console.error('PayPal Buttons failed to render');
+              });
+        </script>
+{% endblock payment-gateway %}
+

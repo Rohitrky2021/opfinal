@@ -1,0 +1,42 @@
+.owl-carousel .item{
+ /* border: 1px solid black; */
+ font-size: 24px;
+ text-align: center;
+ margin-top: 20px;;
+}
+
+.owl-next{
+ float:right;
+}
+.owl-prev{
+ float:left;
+}
+.owl-prev span{
+ font-size: 24px;
+ font-weight: bold;
+}
+.owl-next span{
+ font-size: 24px;
+ font-weight: bold;
+}
+
+  /*# sourceMappingURL=style.css.map */
+  .engine {
+      position: absolute;
+      text-indent: -2400px;
+      text-align: center;
+      padding: 0;
+      top: 0;
+      left: -2400px;
+  }
+  .align-left {
+    text-align: left; }
+  
+  .align-center {
+    text-align: center; }
+  
+  .align-right {
+    text-align: right; }
+  
+
+  

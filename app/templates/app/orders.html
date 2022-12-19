@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Orders{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+ <h3><span class="text-capitalize" >Welcome {{request.user}}</span></h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">Orders</a></li>
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+    {% for op in order_placed %}{% endfor %}
+   <div class="row">
+    <div class="col-sm-6">Order 1</div>
+    <div class="col-sm-6">Order 2</div>
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
