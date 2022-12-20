@@ -36,11 +36,11 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     
     'app',
 ]
@@ -48,7 +48,9 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'corsheader.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -76,7 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tripulishop.wsgi.application'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
+CORS_ORIGIN_ALLOW_ALL=True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 

@@ -7,6 +7,8 @@ from django.core.mail import send_mail
 from django.db.models import Q
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt  
+
 from django.utils.decorators import method_decorator
 #now not function based view only classed based view
 
@@ -213,11 +215,12 @@ def bottomwear(request,data=None):
 #  return render(request, 'app/customerregistration.html')
 
 class CustomerRegistrationView(View):
+    @csrf_exempt
     def get(self,request):
      form=CustomerRegistrationForms()
      form.order_fields(field_order=['username','email','password1','password2'])
      return render(request,'app/customerregistration.html', {'form':form} )
-    
+    @csrf_exempt
     def post(self,request):
         form=CustomerRegistrationForms(request.POST)
         form.order_fields(field_order=['username','email','password1','password2'])
