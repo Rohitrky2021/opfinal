@@ -261,8 +261,8 @@ class ProfileView(View):
         state=form.cleaned_data['state']  
         zipcode=form.cleaned_data['zipcode']  
         reg=Customer(user=usr,name=name,locality=locality,city=city,state=state,zipcode=zipcode)
-    reg.save()
-    messages.success(request,'Congratulations!! Profile Update Successfully')
+        reg.save()
+        messages.success(request,'Congratulations!! Profile Update Successfully')
     return render(request,'app/profile.html',{'form':form,'active':'btn-primary'})    
 
 
