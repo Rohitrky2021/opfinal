@@ -220,6 +220,7 @@ class CustomerRegistrationView(View):
      form=CustomerRegistrationForms()
      form.order_fields(field_order=['username','email','password1','password2'])
      return render(request,'app/customerregistration.html', {'form':form} )
+
     @csrf_exempt
     def post(self,request):
         form=CustomerRegistrationForms(request.POST)

@@ -75,7 +75,7 @@ TEMPLATES = [
         },
     },
 ]
-
+CSRF_TRUSTED_ORIGINS=['tripulishop.up.railway.app']
 WSGI_APPLICATION = 'tripulishop.wsgi.application'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 CORS_ORIGIN_ALLOW_ALL=True
