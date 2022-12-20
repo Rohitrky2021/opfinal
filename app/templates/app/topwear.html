@@ -15,7 +15,7 @@
         <a href="{% url 'topweardata' 'above' %}" class="list-group-item
         list-group-item-action" aria-current="true">Above 10000</a>
 
-
+    </div>
    {% comment %} Side Bar for Mobile filter {% endcomment %}
   </div>
   <div class="col-sm-8 ">
@@ -28,8 +28,8 @@
                 <img src="{{product.product_image.url}} " alt=""
                 height="300" class="">
                 <div class="fw-bold">Rs. {{product.discounted_price}}
-                <small class="fw-light text-decoration-line-through">{
-                   {product.selling_price} }</small></div>
+                <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>
+                   
                 </div>
             </a>
         </div>{%endfor%}            

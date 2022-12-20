@@ -19,12 +19,12 @@ class ProductView(View):
      topwears=Product.objects.filter(category='TW')
      bottomwears=Product.objects.filter(category='BW')
      mobiles=Product.objects.filter(category='M')
-     Laptop=Product.objects.filter(category='L')
+     laptops=Product.objects.filter(category='L')
      Mo=Product.objects.filter(category='Mo')
      bannerji=Product.objects.filter(category='ban')
      hoodi=Product.objects.filter(category='TW').filter(brand='Hoodies')
      allitem=Product.objects.all
-     return render(request,'app/home.html',{'topwears':topwears,'bottomwears':bottomwears,'mobiles':mobiles,'Laptop':Laptop,'allitem':allitem,'Mo':Mo,'hoodi':hoodi,'bannerji':bannerji})
+     return render(request,'app/home.html',{'topwears':topwears,'bottomwears':bottomwears,'mobiles':mobiles,'laptops':laptops,'allitem':allitem,'Mo':Mo,'hoodi':hoodi,'bannerji':bannerji})
 
 
 
@@ -178,7 +178,7 @@ def laptop(request,data=None):
     elif data=='Redmi' or data=='Asus':
         laptops=Product.objects.filter(category='L').filter(brand=data)
     elif data=='below' :
-        laptops=Product.objects.filter(category='L').filter(discounted_price__lt=4500.00)
+        laptops=Product.objects.filter(category='L').filter(discounted_price__lt=45000.00)
     elif data=='above':
         laptops=Product.objects.filter(category='L').filter(discounted_price__gt=100000.00)
     return render(request, 'app/laptop.html',{'laptops':laptops})
