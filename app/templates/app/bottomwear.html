@@ -28,8 +28,8 @@
                 <img src="{{product.product_image.url}} " alt=""
                 height="280" class="">
                 <div class="fw-bold">Rs. {{product.discounted_price}}
-                <small class="fw-light text-decoration-line-through">{
-                   {product.selling_price} }</small></div>
+                <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>
+                   
                 </div>
             </a>
         </div>{%endfor%}            
