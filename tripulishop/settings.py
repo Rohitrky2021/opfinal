@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-!n+i)75_$^i@t3&vy5o8$&s-j&n--=21*^z8#^4fmj%!ukt(+o
 # SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://tripulishop.up.railway.app","127.0.0.1","0.0.0.0:5806"]
 
 
 # Application definition
