@@ -78,7 +78,7 @@ TEMPLATES = [
 
 CSRF_TRUSTED_ORIGINS=['https://tripulishop.up.railway.app','http://127.0.0.1:8000']
 WSGI_APPLICATION = 'tripulishop.wsgi.application'
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # CORS_ORIGIN_ALLOW_ALL=True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
