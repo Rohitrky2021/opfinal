@@ -79,7 +79,7 @@ TEMPLATES = [
 CSRF_TRUSTED_ORIGINS=['https://tripulishop.up.railway.app','http://127.0.0.1:8000']
 WSGI_APPLICATION = 'tripulishop.wsgi.application'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-# CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_ALLOW_ALL=True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -142,6 +142,6 @@ LOGIN_REDIRECT_URL ='/profile/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # SESSION_ENGINE="django.contrib.session.backends.db"
 STATIC_ROOT=os.path.join(BASE_DIR,"/static/")
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+# )
