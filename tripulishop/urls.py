@@ -11,4 +11,5 @@ urlpatterns = [
 
 urlpatterns+=static(settings.STATIC_URL,document_root=settings.STATIC_ROOT);
 handler404='app.views.error404'
-handler500='app.views.error500'
+# handler500='app.views.error500'
+handler400='app.views.error404'
