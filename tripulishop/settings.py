@@ -63,7 +63,7 @@ ROOT_URLCONF = 'tripulishop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,10 +75,11 @@ TEMPLATES = [
         },
     },
 ]
-CSRF_TRUSTED_ORIGINS=['https://tripulishop.up.railway.app']
+
+CSRF_TRUSTED_ORIGINS=['https://tripulishop.up.railway.app','http://127.0.0.1:8000']
 WSGI_APPLICATION = 'tripulishop.wsgi.application'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-CORS_ORIGIN_ALLOW_ALL=True
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# CORS_ORIGIN_ALLOW_ALL=True
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -118,8 +119,9 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
 USE_L10N = True
+
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -140,6 +142,6 @@ LOGIN_REDIRECT_URL ='/profile/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # SESSION_ENGINE="django.contrib.session.backends.db"
 STATIC_ROOT=os.path.join(BASE_DIR,"/static/")
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+# )

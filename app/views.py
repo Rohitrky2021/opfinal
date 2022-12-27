@@ -32,6 +32,13 @@ class ProductView(View):
 def home(request):
  return render(request, 'app/home.html')
 
+def error404(request,exception):
+    return render(request, 'app/error.html')
+
+def error500(exception):
+    return render('','app/error.html')
+
+
 # def product_detail(request):
 #  return render(request, '1')
 
