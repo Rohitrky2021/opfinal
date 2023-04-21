@@ -142,6 +142,6 @@ LOGIN_REDIRECT_URL ='/profile/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # SESSION_ENGINE="django.contrib.session.backends.db"
 STATIC_ROOT=os.path.join(BASE_DIR,"/static/")
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
