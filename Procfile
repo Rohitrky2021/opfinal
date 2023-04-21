@@ -1,1 +1,0 @@
-web: gunicorn tripulishop.wsgi --log-file -
