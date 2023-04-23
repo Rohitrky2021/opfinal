@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-!n+i)75_$^i@t3&vy5o8$&s-j&n--=21*^z8#^4fmj%!ukt(+o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -140,7 +140,9 @@ LOGIN_REDIRECT_URL ='/profile/'
 # STATIC_ROOT = BASE_DIR / 'static'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # SESSION_ENGINE="django.contrib.session.backends.db"
-STATIC_ROOT=os.path.join(BASE_DIR,"/static/")
+# STATIC_ROOT=os.path.join(BASE_DIR,"/static/")
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, "static"),
 # )
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
