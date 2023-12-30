@@ -40,15 +40,17 @@ urlpatterns = [
 
 
     path('topwear/', views.topwear, name='topwear'),
+    # path('error404/', views.error404, name='error404'),
+
     path('topwear/<slug:data>', views.topwear, name='topweardata'),
 
     path('bottomwear/', views.bottomwear, name='bottomwear'),
     path('bottomwear/<slug:data>', views.bottomwear, name='bottomweardata'),
 
 
-
     path('accounts/login/', auth_views.LoginView.as_view(template_name='app/login.html',
         authentication_form=LoginForm), name='login'),
+
     path('logout/',auth_views.LogoutView.as_view(next_page='login'),name='logout'),
     # password reset------------>
     path('passwordchange/',auth_views.PasswordChangeView.as_view(template_name='app/passwordchange.html',form_class=MyPasswordChangeForm,success_url='/passwordchangedone/'), name='passwordchange'),    
@@ -72,5 +74,6 @@ urlpatterns = [
      path('profile/', views.ProfileView.as_view(), name='profile'),
        ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
     #  +  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# from django.conf.urls import handler400
+            
 
- 
